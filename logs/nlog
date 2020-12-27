@@ -1,0 +1,2 @@
+2020-12-28 00:18:23,209 INFO     None GET http://localhost:65518/ 127.0.0.1
+2020-12-28 00:18:23,265 INFO     False GET http://localhost:65518/login 127.0.0.1
