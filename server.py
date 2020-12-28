@@ -84,13 +84,15 @@ def index(message=''):
 def logout():
     username = request.get_cookie("user", secret=secretKey)
     users[username]["loggedIn"] = False
+    response.set_cookie("user", None, secret=secretKey)
+    response.set_cookie("randStr", None, secret=secretKey)
     return template('login')
 
 
 @app.route('/action1')
 def action1():
-    loginName = checkAuth()
-    if loginName != 'admin':
+    loginName = request.get_cookie("user", secret=secretKey)
+    if loginName is None:
         return template('action1')
     else:
         return template('index')
