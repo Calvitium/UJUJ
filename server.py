@@ -8,6 +8,7 @@ import string
 import logging
 from users import users
 import logging.handlers
+import sqlite3
 
 log = logging.getLogger('bottle')
 log.setLevel('INFO')
@@ -20,6 +21,8 @@ log.addHandler(h)
 secretKey = "SDMDSIUDSFYODS&TTFS987f9ds7f8sd6DFOUFYWE&FY"
 
 app = Bottle()
+
+
 
 
 @app.route('/static/:path#.+#', name='static')
@@ -43,7 +46,15 @@ def checkAuth():
 @app.route('/register')
 @app.route('/register', method='POST')
 def register():
-    return template('index', loginName="HEJKA")
+    #Tutaj ściągnij z formularza wszystkie informacje, które chcesz zapisać
+    country = request.forms.get('country', default=False)
+    city = request.forms.get('city', default=False)
+
+    with sqlite3.connect('webapp.db') as connection:
+        cursor = connection.cursor()
+        cursor.execute(f"INSERT INTO Address_Entities (city, country) VALUES('{city}','{country}')",)
+
+    return template('login')
 
 
 @app.route('/login')
@@ -77,7 +88,24 @@ def index(message=''):
     loginName = checkAuth()
     messDict = {'error': "Something went wrong",
                 'ok': "Everything is ok."}
-    return template('index', message=messDict.get(message, ""), loginName=loginName)
+
+    name = request.forms.get('name', default=False)
+    yearFrom = request.forms.get('yearFrom', default=False)
+    yearTo = request.forms.get('yearTo', default=False)
+
+    query = f"""
+        SELECT S.Date, S.AltmanScore, S.AltmanRating 
+        FROM Score_Rating S 
+            JOIN Reference_Data_Entities R 
+                ON S.ID_Entities = R.ID_Entities
+        WHERE R.Name = '{name}'
+            AND S.Date BETWEEN {yearFrom} AND {yearTo}"""
+
+    with sqlite3.connect('webapp.db') as connection:
+        cursor = connection.cursor()
+        scores = cursor.execute(query).fetchall()  # [(Date, AltmanScore, AltmanRating),(...),(...)]
+
+    return template('index', message=messDict.get(message, ""), loginName=loginName, scores=scores)
 
 
 @app.route('/logout', method='GET')

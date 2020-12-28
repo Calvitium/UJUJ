@@ -10,14 +10,30 @@
 		
 		<h2>REGISTRATION AREA</h2>
 		<body>
-			<form action=/register method="get">
-				<table>					
+			<form action=/register method="post">
+				<table>
+				    <tr>
+						<td>
+						Year:
+						</td>
+						<td>
+							<select id="rok" name="year">
+								<option value="Choose">Choose</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+								<option value="2019">2019</option>
+								<option value="2020">2020</option>
+							</select>
+						</td>
+					</tr>
+
 					<tr>
 						<td>
 						Name of the company:
 						</td>
 						<td>
-							<input type = "text" name="">
+							<input type = "text" name="company_name">
 						</td>
 					</tr>
 					
@@ -42,7 +58,7 @@
 							Country of the company:
 						</td>
 						<td>
-							<input type = "text" name="">
+							<input type = "text" name="country">
 						</td>
 					</tr>
 					<tr>
@@ -50,7 +66,7 @@
 							City of the company:
 						</td>
 						<td>
-							<input type = "text" name="">
+							<input type = "text" name="city">
 						</td>
 					</tr>				
 
@@ -62,7 +78,6 @@
 							Market of the company:
 						</td>
 						<td>
-							
 								<select id="Market">
 									<option value="Choose">Choose</option>
 									<option value="GPW">Warsaw Stock Exchange</option>
@@ -78,14 +93,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 	
@@ -146,14 +154,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-								<select id="rok">
-									<option value="Choose">Choose</option>
-									<option value="2016">2016</option>
-									<option value="2017">2017</option>
-									<option value="2018">2018</option>
-									<option value="2019">2019</option>
-									<option value="2020">2020</option>
-								</select>
+
 						</td>
 					</tr>				
 					
@@ -163,14 +164,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					<tr>
@@ -179,14 +173,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					
@@ -196,14 +183,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					<tr>
@@ -212,14 +192,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					
@@ -229,14 +202,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					<tr>
@@ -245,14 +211,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					<tr>
@@ -261,14 +220,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					<tr>
@@ -277,14 +229,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					<tr>
@@ -293,14 +238,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					<tr>
@@ -309,14 +247,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 					
@@ -326,14 +257,7 @@
 						</td>
 						<td>
 							<input type = "text" name="">
-							<select id="rok">
-								<option value="Choose">Choose</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-							</select>
+
 						</td>
 					</tr>				
 

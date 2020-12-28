@@ -6,10 +6,10 @@
 <div class="col-md-12">
 	<h1>Welcome to RatingPlatform!</h1>
 	<h1>LOGIN AREA</h1>
-<form action="/login" method="post"> Login: <input name="login_name" type="text"><br>
-Password: <input name="password" type="password"><br>
-
-<input value="Log in" type="submit"></form>
+<form action="/login" method="post">
+    Login: <input name="login_name" type="text"><br>
+    Password: <input name="password" type="password"><br>
+    <input value="Log in" type="submit"></form>
 <h2><span lang="EN-US">New to <strong>RatingPlatform</strong>? </span></h2>
 
 <a href="/action1"><input value="Register" type="submit"></a>
