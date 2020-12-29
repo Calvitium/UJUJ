@@ -23,8 +23,6 @@ secretKey = "SDMDSIUDSFYODS&TTFS987f9ds7f8sd6DFOUFYWE&FY"
 app = Bottle()
 
 
-
-
 @app.route('/static/:path#.+#', name='static')
 def static(path):
     return static_file(path, root='./static')
@@ -46,13 +44,24 @@ def checkAuth():
 @app.route('/register')
 @app.route('/register', method='POST')
 def register():
-    #Tutaj ściągnij z formularza wszystkie informacje, które chcesz zapisać
+    # Tutaj ściągnij z formularza wszystkie informacje, które chcesz zapisać
     country = request.forms.get('country', default=False)
     city = request.forms.get('city', default=False)
 
     with sqlite3.connect('webapp.db') as connection:
         cursor = connection.cursor()
-        cursor.execute(f"INSERT INTO Address_Entities (city, country) VALUES('{city}','{country}')",)
+        address_id = cursor.execute(
+            f"SELECT id_address FROM Address_Entities WHERE city='{city}' AND country='{country}'"
+        ).fetchone()  # odpowiedź postaci: (ID,)
+        if address_id is None:
+            cursor.execute(f"INSERT INTO Address_Entities (city, country) VALUES('{city}','{country}')", )
+            address_id = cursor.execute(f"SELECT MAX(id_address) FROM Address_Entities").fetchone()[0]
+        else:
+            address_id = address_id[0]
+
+        print(address_id)
+        # w tym miejscu masz pod address_id
+        # bądź istniejącego wcześniej rekordu address, bądź właśnie stworzonego
 
     return template('login')
 
@@ -123,7 +132,7 @@ def action1():
     if loginName is None:
         return template('action1')
     else:
-        return template('index')
+        return template('index', loginName=loginName)
 
 
 app.run(host='localhost', port=65518, reloader=False, debug=False)
